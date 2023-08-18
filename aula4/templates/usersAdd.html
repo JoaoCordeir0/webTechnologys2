@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/users/save" method="post">
+        <div>
+            <input type="text" name="user_name" placeholder="Informe o nome">
+        </div>    
+        <div>
+            <input type="text" name="user_yearsold" placeholder="Informe a idade">
+        </div>
+        <div>
+            <button type="submit">Cadastrar</button>
+        </div>
+        <div>
+            <button type="button" id="back" style="display: none;">Voltar</button>
+        </div>
+    </form>
+
+    <script>                
+        if (window.location.pathname.split('/')[2] == 'save')
+        {
+            document.getElementById('back').style.display = 'block'
+        }
+        
+        document.getElementById('back').addEventListener('click', () => {
+            window.location.href = '/users/add'
+        })
+    </script>
+</body>
+</html>
