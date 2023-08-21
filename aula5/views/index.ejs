@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <%- include('partials/head') %>
+
+    <title>Forum Project</title>
+</head>
+<body>
+    
+    <h1>Starting</h1>
+    <hr>
+    <h3>Question 1:</h3>
+    
+    <% if (msg) { %>
+        <%= name %> -      
+        <%= company %>
+    <% } %>
+
+    <hr>
+        
+    <% products.forEach(element => { %>
+         <p> <%= element.nome %> - <%= element.price %> </p>
+    <% }) %>
+    
+    <img src="/img/vectra.png" alt="Vectra">
+</body>
+</html>
