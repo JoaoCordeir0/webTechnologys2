@@ -7,25 +7,41 @@
     
     <%- include('partials/navbar') %>
 
-    <div class="container d-flex justify-content-center mt-5">
-        <!-- <img src="/img/vectra.png" alt="Vectra"> -->
+    <div class="container mt-5">
 
-        <a href="/question" class="btn btn-primary">New question</a>
+        <div class="row">
+            <div class="col-12">
+                <a href="/question" class="btn btn-primary">New question</a>
+            </div>            
+        </div> 
 
         <hr>
-
-        <% questions.forEach(question => { %>
-            <br>
-            <div class="card">
-                <div class="card-body">
-                    <h3> <%= question.title %> </h3>
-                </div>
-                <div class="footer">
-                    <button class="btn btn-primary">Anwser</button>
-                </div>
-            </div>    
-        <% }); %>
+        
+        <div class="row">
+            <div class="col-12">
+                <% if (questions.length !== 0) { %>
+                    <% questions.forEach(question => { %>                            
+                        <div class="card">
+                            <div class="card-body">
+                                <h3> <%= question.title %> </h3>
+                            </div>
+                            <div class="card-footer">
+                                <a href="/detail/question/<%= question.id %>" class="btn btn-primary">Anwser</a>
+                            </div>
+                        </div>    
+                    <% }); %>
+                <% } else { %>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3> Empty content! </h3>
+                        </div>                
+                    </div> 
+                <% } %>
+            </div>
+        </div>
     </div>
+
+    <%- include('partials/footer') %>
     
 </body>
 </html>

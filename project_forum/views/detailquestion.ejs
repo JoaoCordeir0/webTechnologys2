@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+<body>
+    
+    <%- include('partials/navbar') %>
+
+    <div class="container mt-5">
+        
+        <hr>
+        <h1> <%= question.title %> </h1>
+        <hr>
+        <p> <%= question.description %> </p>
+        <hr>
+
+        <form method="POST" action="/reply/question/<%= question.id %>">
+            <h3>Anwser</h3>                  
+            <textarea name="bodyAnwser" class="form-control" placeholder="Input yout message" cols="30" rows="5"></textarea>
+            <button type="submit" class="btn btn-primary mt-2">Reply</button>
+        </form>
+        
+        <hr>
+        <h3>Anwsers</h3>
+        <% anwsers.forEach(anwser => { %>
+            <div class="card">
+                <div class="card-body">
+                    <p> <%= anwser.createdAt %> - <%= anwser.body %> </p>
+                </div>
+                <div class="card-footer">
+                    <a href="/delete/anwser/<%= anwser.id %>" class="btn btn-primary">Delete anwser</a>
+                </div>
+            </div>           
+            <br> 
+        <% }) %>                
+
+    </div>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>
